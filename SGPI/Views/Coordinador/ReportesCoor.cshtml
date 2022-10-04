@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title"] = "ReportesCoor";
+    Layout = "_LayoutSGPI";
+}
+ 
+<h1 align="center">Reportes Coordinador</h1>
+<h6 align="right"><a href="/Administrador/Login" id=" cerrarsesion">Cerrar Sesión </a></h6>
+<br />
+<form action="" class="form-inline justify-content-center">
+    <center>
+        <!--Agrego el menu-->
+        <ul class="nav nav-tabs" class="form">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a class="nav-link " href="/Coordinador/BuscarCoordinador">Buscar</a>
+            </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a class="nav-link "  href="#">Programar Asignación</a>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a class="nav-link" href="/Coordinador/Homologacion">Homologación</a>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a class="nav-link " href="/Coordinador/Entrevista">Entrevistas</a>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Reportes</a>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </ul>
+    </center>
+     
+   
+</form>
+<br />
+<label>Tipo de Documento</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Numero de Documento</label>
+<div class="input-group">
+    <br />
+    <select class="form-select col-sm-3" aria-label="Default select example">
+
+        <option selected="1">Cedula de Ciudadania</option>
+        <option value="2">Tarjeta de Extranjeria</option>
+        <option value="3">Ninguno</option>
+    </select>&nbsp;&nbsp;
+    <br />
+    <input type="text" value="1.017.238.577" class="form-control col-sm-3" id="Reportesuariotxt" required />&nbsp;&nbsp;
+
+</div>
+<br />
+
+<form action="" class="form-inline justify-content-center">
+    <center>
+        <table class="default" border="1px">
+
+            <tr>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Genero</th>
+                <th>Documento</th>
+                <th>Programa</th>
+                <th>Rol</th>
+                <th>Correo Electronico</th>
+            </tr>
+
+            <tr>
+
+                <td>Sara</td>
+                <td>Jaramillo</td>
+                <td>Florez</td>
+                <td>Femenino</td>
+                <td>1.017.238.577</td>
+                <td>Ingenieria en sistemas</td>
+                <td>Administrador</td>
+                <td>Sara.jaramillo91@correo.edu.co</td>
+
+            </tr>
+            <br />
+            <tr>
+
+                <td> <br /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td> <br /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+
+        </table>
+        <br />
+        <button type="button" class="btn btn-outline-danger" id="crearbtn type" submit>Generar </button>
+    </center>
+   
+</form>
+
+
+
+
