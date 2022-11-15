@@ -50,48 +50,42 @@ namespace SGPI.Controllers
             return View(usuarioActualizar);
         }
 
+        public IActionResult EstudiantePagos(int? Idusuario)
+        {
+            Usuario usuario = new Usuario();
+            var usr = context.Usuarios.Where(consulta => consulta.Idusuario == Idusuario).FirstOrDefault();
+            ViewBag.Idusuario = usr.Idusuario;
+            return View();
+        }
 
         [HttpPost]
-        public IActionResult EstudiantePagos(int? Idusuario, Pago usr)
+        public IActionResult EstudiantePagos(int? Idusuario, Pago usuario)
         {
-            Usuario user = context.Usuarios.Find(Idusuario);
+            Usuario usr = context.Usuarios.Find(Idusuario);
 
-            usr.Estado = true;
-            context.Pagos.Add(usr);
+            usuario.Estado = true;
+            context.Pagos.Add(usuario);
             context.SaveChanges();
+            ViewBag.mensaje = "Pago Ingresado";
 
             Estudiante est = new Estudiante();
-            est.Archivo = null;
-            est.Idusuario = (int)user.Idusuario;
-            est.Idpago = usr.Idpago;
+            est.Archivo = "";
+            est.Idusuario = usr.Idusuario;
+            est.Idpago = usuario.Idpago;
             est.Egresado = true;
-
-            context.Estudiantes.Add(est);
-            context.SaveChanges();
-
-            Usuario usuario = new Usuario();
-            var us = context.Usuarios.Where(consulta => consulta.Idusuario == Idusuario).FirstOrDefault();
-            ViewBag.idusuario = us.Idusuario;
-            ViewBag.mensaje = "Pago Ingresado";
+            //est.Archivo = null;
+            //est.Idusuario = (int)user.Idusuario;
+            //est.Idpago = usr.Idpago;
 
 
             //usr.Estado = true;
             //ViewBag.mensaje = "Pago Ingresado";
-            //context.Pagos.Add(usr);
-            //context.SaveChanges();
-
+            context.Estudiantes.Add(est);
+            context.SaveChanges();
             return View();
         }
 
         
-        public IActionResult EstudiantePagos(int? Idusuario)
-        {
-            Usuario usuario= new Usuario();
-            var usr = context.Usuarios.Where(consulta => consulta.Idusuario == Idusuario).FirstOrDefault();
-            ViewBag.Idusuario = usr.Idusuario;
-
-            //ViewBag.Pagos = context.Pagos.ToList();
-            return View();
-        }
+       
     }
 }

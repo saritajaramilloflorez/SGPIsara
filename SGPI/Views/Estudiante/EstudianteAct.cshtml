@@ -13,14 +13,14 @@
         <!--Agrego el menu-->
         <ul class="nav nav-tabs" class="form">
             <li class="nav-item">
-                @Html.ActionLink("EstudianteAct", "EstudianteAct",new{Idusuario = ViewBag.idusuario})
+                @Html.ActionLink("EstudianteAct", "EstudianteAct",new{Idusuario = Model.Idusuario})
             </li>
             <li class="nav-link" href="">
                 <a class="nav-link" href=""></a>
 
             </li>
             <li class="nav-item">
-                @Html.ActionLink("EstudiantePagos", "EstudiantePagos",new{Idusuario = ViewBag.idusuario})
+                @Html.ActionLink("EstudiantePagos", "EstudiantePagos",new{Idusuario = Model.Idusuario})
 
             </li>
 
