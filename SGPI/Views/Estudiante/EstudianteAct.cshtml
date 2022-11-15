@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.Usuario
 @{
     ViewData["Title"] = "EstudianteAct";
     Layout = "_LayoutSGPI";
@@ -12,14 +12,18 @@
     <center>
         <!--Agrego el menu-->
         <ul class="nav nav-tabs" class="form">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Actualizar</a>
-            </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("EstudianteAct", "EstudianteAct",new{Idusuario = ViewBag.idusuario})
+            </li>
+            <li class="nav-link" href="">
+                <a class="nav-link" href=""></a>
+
+            </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Estudiante/EstudiantePagos">Pagos</a>
-            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
+                @Html.ActionLink("EstudiantePagos", "EstudiantePagos",new{Idusuario = ViewBag.idusuario})
+
+            </li>
+
         </ul>
     </center>
     <br />
@@ -27,88 +31,69 @@
 </form>
 <br />
 <br />
-<!--Creo la columnas-->
-<div class="container text-center">
-    <div class="row align-items-start">
-        <div class="col">
-            <!--Aca agregamos el select-->
-            <label>Tipo de Documento</label>
-            <br />
-            <select class="form-select col-sm-12" aria-label="Default select example">
+<form method="post">
+    <!--Creo la columnas-->
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <!--Aca agregamos el select-->
+                <label>Tipo de Documento</label>
+                <br />
+                @Html.DropDownList("IdDoc", new SelectList(ViewBag.documento, "IdDoc", "TipoDocumento"), new{@class="form-control dropdown"})
+                <br />
+                <label>Programa</label>
+                <br />
+                @Html.DropDownList("Idprograma", new SelectList(ViewBag.Programa, "Idprograma", "Programa1"), new{@class="form-control dropdown"})
+                <br />
+                <label>Género</label>
+                <br />
+                @Html.DropDownList("Idgenero", new SelectList(ViewBag.genero, "Idgenero", "Genero1"), new{@class="form-control dropdown"})
+            </div>
 
-                <option selected="1">Cedula de Ciudadania</option>
-                <option value="2">Tarjeta de Extranjeria</option>
-                <option value="3">Ninguno</option>
-            </select>
-            <br />
-            <label>Programa</label>
-            <br />
-            <select class="form-select col-sm-12" aria-label="Default select example">
-                <option selected>Ingeniería en Sistemas</option>
-                <option value="1">MaestrÍa en Gestión TI</option>
-                <option value="2">Especialización</option>
-                <option value="3">Maestría en Medio Ambiente</option>
-            </select>
-            <br />
-            <label>Género</label>
-            <br />
-            <select class="form-select col-sm-12" aria-label="Default select example">
+            <div class="col">
+                <label>Numero de Documento</label>
+                <br />
+                <input asp-for="NumeroDocumento" type="text" class="form-control col-sm-12" id="numerodocumentousuariotxt" required />
+                <br />
+                <label>Correo Electronico</label>
+                <input asp-for="Email" type="text" class="form-control col-sm-12" id="correoelectronicousuariotxt" required />
+                <br />
+                <label>Password</label>
+                <br />
+                <input asp-for="Password" type="password" class="form-control col-sm-12" id="passtxt" required />
+            </div>
+            <div class="col">
+                <label>Primer Nombre</label>
+                <br />
+                <input asp-for="PrimerNombre" type="text" class="form-control col-sm-12" id="primernombreusuariotxt" required />
+                <br />
+                <label>Primer Apellido</label>
+                <br />
+                <input asp-for="PrimerApellido" type="text" class="form-control col-sm-12" id="PrimerApellidousuariotxt" required />
 
-                <option selected="1">Femenino</option>
-                <option value="2">Masculino</option>
-                <option value="3">Otro</option>
-            </select>
-        </div>
+            </div>
+            <div class="col">
+                <label>Segundo Nombre</label>
+                <br />
+                <input asp-for="SegundoNombre" type="text" class="form-control col-sm-12" id="Segundonombreusuariotxt" required />
+                <br />
+                <label>Segundo Apellido</label>
+                <br />
+                <input asp-for="SegundoApellido" type="text" class="form-control col-sm-12" id="segundoApellidousuariotxt" required />
+                <br />
+                <br />
 
-        <div class="col">
-            <label>Numero de Documento</label>
-            <br />
-            <input type="text" class="form-control col-sm-12" id="numerodocumentousuariotxt" required />
-            <br />
-            <label>Correo Electronico</label>
-            <input type="text" class="form-control col-sm-12" id="correoelectronicousuariotxt" required />
-            <br />
-            <label>Enviar Certificado</label>
-            <div class="input-group">
-                <form action="/action_page.php">
-                    <input type="text" value="Certificado.pdf" class="form-control col-sm-6" id="correoelectronicousuariotxt" required />
-                    <input type="file" id="img" name="img" accept="image/*" />
-                    
-                </form>
+                @if (ViewBag.mensaje != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewBag.mensaje
+                        </div>
+                }
+                <button type="submit" class="btn btn-outline-danger" id="crearbtn type" submit>Actualizar Usuario </button></center>
             </div>
         </div>
-        <div class="col">
-            <label>Primer Nombre</label>
-            <br />
-            <input type="text" class="form-control col-sm-12" id="primernombreusuariotxt" required />
-            <br />
-            <label>Primer Apellido</label>
-            <br />
-            <input type="text" class="form-control col-sm-12" id="PrimerApellidousuariotxt" required />
-
-        </div>
-        <div class="col">
-            <label>Segundo Nombre</label>
-            <br />
-            <input type="text" class="form-control col-sm-12" id="Segundonombreusuariotxt" required />
-            <br />
-            <label>Segundo Apellido</label>
-            <br />
-            <input type="text" class="form-control col-sm-12" id="segundoApellidousuariotxt" required />
-            <br />
-            <br />
-
-
-            <button type="button" class="btn btn-outline-danger" id="crearbtn type" submit>Crear Usuario </button></center>
-
-        </div>
-
     </div>
-
-
-</div>
-
-</center>
+</form>
 
 
 

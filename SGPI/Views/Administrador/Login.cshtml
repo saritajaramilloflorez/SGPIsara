@@ -1,9 +1,15 @@
-﻿
+﻿@model SGPI.Models.Usuario
 @{
     ViewData["Title"] = "Login";
     //Aca selecciono para que aparezca el layout
     Layout = "_LayoutSGPI";
 }
+@if (ViewBag.mensaje!=null){
+    <br />
+    <center><h3>@ViewBag.mensaje</h3></center>
+
+}
+
 
 <!--Aca titulo-->
    <br/>
@@ -15,19 +21,19 @@
    
    
    
-<form>
+<form method="post">
 <center>
 <div class="form-group">
 <!--Aca un label-->
 <label for="usuariotxt">Usuario</label>
 <!--Aca un input-->
-<input type="text" class="form-control col-sm-4" id="usuariotxt" requiered />
+<input asp-for="NumeroDocumento" type="text" class="form-control col-sm-4" id="usuariotxt" requiered />
 <br/>
 </div>
 
 <div class="form-group">
 <label for="password.txt">Contraseña</label>
-<input type="password" class="form-control col-sm-4" id="passwordtxt" requiered />
+<input asp-for="Password" type="password" class="form-control col-sm-4" id="passwordtxt" requiered />
 </div>
 
 
@@ -37,6 +43,6 @@
 
 <!--Aca un botton con color-->
 
-<a href="/Administrador/CrearUsuario" <button type="button" class="btn btn-outline-danger"  id="ingresarbtn type" submit>Ingresar </button></center></a>
+<button type="submit" class="btn btn-outline-danger"  id="ingresarbtn ">Ingresar </button></center>
 <!--<button id="ingresarbtn type"submit>Ingresar</button> -->
 </form>

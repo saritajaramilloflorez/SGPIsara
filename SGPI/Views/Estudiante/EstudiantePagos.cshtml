@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.Pago
 @{
     ViewData["Title"] = "EstudiantePagos";
     Layout = "_LayoutSGPI";
@@ -12,13 +12,18 @@
     <center>
         <!--Agrego el menu-->
         <ul class="nav nav-tabs" class="form">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <li class="nav-item">
+               @Html.ActionLink("EstudianteAct", "EstudianteAct",new{Idusuario = ViewBag.idusuario})
+           </li>
+            <li class="nav-link" href="">
+                <a class="nav-link" href=""></a>
+
+           </li>
             <li class="nav-item">
-                <a class="nav-link " href="/Estudiante/EstudianteAct">Actualizar</a>
-            </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Pagos</a>
-            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("EstudiantePagos", "EstudiantePagos",new{Idusuario = ViewBag.idusuario})
+
+           </li>
+           
 
         </ul>
     </center>
@@ -27,49 +32,43 @@
 </form>
 <br />
 <br />
-<form action="" class="form-inline justify-content-center">
+<form method="post">
     <center>
         <table class="default" border="1px">
 
             <tr>
-                <th>No</th>
+                @*<th>IdPago</th>*@
                 <th>Valor Pago</th>
                 <th>Fecha Pago</th>
-                <th>Opciones</th> 
+                <th>Opciones</th>
             </tr>
 
             <tr>
+               @* <td>
+                    <input asp-for="Idpago" type="text" class="form-control col-sm-6" id="numerodocumentousuariotxt" required />
+                </td>*@
 
-                <td> 1 </td>
-                <td> $2'000.000 </td>
-                <td> 03/02/22 </td>
-                <td><a href="">Pago1.pdf</a></td>
-                
+                <td>
+                    <input asp-for="ValorPago" type="text" class="form-control col-sm-6" id="numerodocumentousuariotxt" required />
+                </td>
+
+                <td>  <input asp-for="Fecha" type="date" class="form-control col-sm-12" id="numerodocumentousuariotxt" required />  </td>
+                <td>
+                    <label class="form-label text-Black" for="certificadotxt">Subir certificado:</label> <br />
+                    <input class="text-black" type="file" id="certificadotxt" />
+                </td>
             </tr>
             <br />
-            <tr>
-
-                <td> <input type="text"  id="buscarusuariotxt" required /><br /></td>
-                <td><input type="text"     id="buscarusuariotxt" required /></td>
-                <td><input type="date"     id="buscarusuariotxt" required /></td>
-                <td><button type="submit" class="btn btn-primary mb-3" href="img/search.png">+ Adjuntar</button></td>
-                
-
-            </tr>
-
-            <tr>
-                <td> <input type="text"  id="buscarusuariotxt" required /> <br /></td>
-                <td> <input type="text" id="buscarusuariotxt" required /></td>
-                <td> <input type="date" id="buscarusuariotxt" required /></td>
-                <td><button type="submit" class="btn btn-primary mb-3" href="img/search.png">+ Adjuntar</button></td>
-               
-
-            </tr>
-
         </table>
+        @if (ViewBag.mensaje != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @ViewBag.mensaje
+            </div>
+        }
         <br />
         <br />
-        <button type="button" class="btn btn-outline-danger" id="crearbtn type" submit>Actualizar Pagos </button>
+        <button type="submit" class="btn btn-outline-danger" id="crearbtn" submit>Actualizar Pagos </button>
     </center>
 
 

@@ -1,8 +1,8 @@
-﻿
+﻿@model SGPI.Models.Usuario
 @{
     ViewData["Title"] = "EliminarUsuario";
     Layout = "_LayoutSGPI";
-} 
+}
 
 <br />
 <h1 align="center">Eliminar Usuario</h1>
@@ -17,16 +17,13 @@
                 <a class="nav-link " href="/Administrador/CrearUsuario">Crear Usuario</a>
             </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-                <a class="nav-link "  href="/Administrador/BuscarUsuario">Buscar Usuario</a>
+                <a class="nav-link " href="/Administrador/BuscarUsuario">Buscar Usuario</a>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Eliminar Usuario</a>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-                <a class="nav-link " href="/Administrador/ModificarUsuario">Modificar Usuario</a>
-            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item">
-                <a class="nav-link" href="#">Reportes</a>
+                <a class="nav-link" href="/Administrador/Reportes">Reportes</a>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </ul>
     </center>
@@ -35,71 +32,42 @@
 </form>
 <br />
 <br />
-<label>Buscar Usuario</label>
-<div class="input-group">
+<form method="post">
+    <label>Buscar Usuario</label>
+    <div class="input-group">
+        <br />
+        <input asp-for="NumeroDocumento" type="text" placeholder="Ingrese el documento de identidad" class="form-control col-sm-3" id="buscarusuariotxt" required />&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary mb-3" href="img/search.png">Buscar</button>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary mb-3" href="img/search.png">Eliminar</button>
+
+    </div>
+
     <br />
-    <input type="text" placeholder="Ingrese el documento de identidad" class="form-control col-sm-3" id="buscarusuariotxt" required />&nbsp;&nbsp;
-    <button type="submit" class="btn btn-primary mb-3" href="img/search.png">Buscar</button>&nbsp;&nbsp;
-    <button type="submit" class="btn btn-primary mb-3" href="img/search.png">Eliminar</button>
 
-</div>
 
-<br />
-
-<form action="" class="form-inline justify-content-center">
-    <center>
-        <table class="default" border="1px">
-
+    <table class="table" border="1">
+        <thead>
             <tr>
-                <th>Nombre</th> 
-                <th>Primer Apellido</th> 
-                <th>Segundo Apellido</th> 
-                <th>Genero</th> 
-                <th>Documento</th> 
-                <th>Programa</th> 
-                <th>Rol</th> 
-                <th>Correo Electronico</th> 
+                <th scope="col">@Html.DisplayNameFor(model=>model.NumeroDocumento)</th>
+                <th scope="col">@Html.DisplayNameFor(model=>model.PrimerNombre)</th>
+                <th scope="col">@Html.DisplayNameFor(model=>model.SegundoNombre)</th>
+                <th scope="col">@Html.DisplayNameFor(model=>model.PrimerApellido)</th>
+                <th scope="col">@Html.DisplayNameFor(model=>model.SegundoApellido)</th>
+                <th scope="col">@Html.DisplayNameFor(model=>model.Email)</th>
             </tr>
-
+        </thead>
+        <tbody>
             <tr>
-
-                <td>Sara</td>
-                <td>Jaramillo</td>
-                <td>Florez</td>
-                <td>Femenino</td>
-                <td>1.017.238.577</td>
-                <td>Ingeniria en sistemas</td>
-                <td>Administrador</td>
-                <td>Sara.jaramillo91@correo.edu.co</td>
+                <td scope="col">@Html.DisplayFor(modelitem=>modelitem.NumeroDocumento)</td>
+                <td scope="col">@Html.DisplayFor(modelitem=>modelitem.PrimerNombre)</td>
+                <td scope="col">@Html.DisplayFor(modelitem=>modelitem.SegundoNombre)</td>
+                <td scope="col">@Html.DisplayFor(modelitem=>modelitem.PrimerApellido)</td>
+                <td scope="col">@Html.DisplayFor(modelitem=>modelitem.SegundoApellido)</td>
+                <td scope="col">@Html.DisplayFor(modelitem=>modelitem.Email)</td>
 
             </tr>
-            <br />
-            <tr>
-
-                <td> <br /></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-            </tr>
-
-            <tr>
-                <td> <br /></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-            </tr>
-
-        </table>
+        </tbody>
+    </table>
     </center>
     <br />
     <br />

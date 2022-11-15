@@ -1,4 +1,5 @@
-﻿
+﻿@model SGPI.Models.Usuario
+
 @{
     ViewData["Title"] = "OlvidarContrasena";
     //Aca selecciono para que aparezca el layout
@@ -21,12 +22,12 @@
             <!--Aca un label-->
             <label for="usuariotxt">Usuario</label>
             <!--Aca un input-->
-            <input type="text" class="form-control col-sm-4" id="usuariotxt" requiered />
+            <input asp-for="Idusuario" type="text" class="form-control col-sm-4" id="usuariotxt" requiered />
         </div>
 
         <div class="form-group">
             <label for="correoelectronico.txt">Correo Electronico</label>
-            <input type="correoelectronico" class="form-control col-sm-4" id="correoelectronicotxt" requiered />
+            <input asp-for="Email" type="correoelectronico" class="form-control col-sm-4" id="correoelectronicotxt" requiered />
         </div>
 
 
@@ -35,8 +36,8 @@
 
         <!--Aca un botton con color-->
 
-        <a href="/Administrador/Login"<button type="button" class="btn btn-outline-danger" id="ingresarbtn type" submit>Enviar</button></a> &nbsp;
-        <a href="/Administrador/Login"<button type="button" class="btn btn-outline-primary" id="ingresarbtn type" submit>Volver</button></a>
+        <button type="button" class="btn btn-outline-danger" id="ingresarbtn type" submit>Enviar</button> &nbsp;
+        <button type="button" class="btn btn-outline-primary" id="ingresarbtn type" submit>Volver</button>
     </center>
     <!--<button id="ingresarbtn type"submit>Ingresar</button> -->
 </form>
